@@ -50,7 +50,7 @@ resource "aws_key_pair" "tuxnoob" {
 
 #AWS EC2
 module "ec2_instance" {
-  source                      = "../modules/aws-ec2-simple/"
+  source                      = "../ec2/"
   count                       = 1
   name                        = "${local.ec2-name}-${trimprefix(data.aws_availability_zones.available.names[count.index], "ap-southeast-")}"
   ami                         = "ami-06edbb08d7b9081ce"
